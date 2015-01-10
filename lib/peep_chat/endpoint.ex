@@ -1,0 +1,28 @@
+defmodule PeepChat.Endpoint do
+  use Phoenix.Endpoint, otp_app: :peep_chat
+
+  plug Plug.Static,
+    at: "/", from: :peep_chat
+
+  plug Plug.Logger
+
+  # Code reloading will only work if the :code_reloader key of
+  # the :phoenix application is set to true in your config file.
+  plug Phoenix.CodeReloader
+
+  plug Plug.Parsers,
+    parsers: [:urlencoded, :multipart, :json],
+    pass: ["*/*"],
+    json_decoder: Poison
+
+  plug Plug.MethodOverride
+  plug Plug.Head
+
+  plug Plug.Session,
+    store: :cookie,
+    key: "_peep_chat_key",
+    signing_salt: "qJZjUtbz",
+    encryption_salt: "kIS8mAey"
+
+  plug :router, PeepChat.Router
+end
