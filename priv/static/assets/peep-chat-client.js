@@ -52,6 +52,7 @@ define("peep-chat-client/router",
     });
 
     Router.map(function() {
+      this.resource('rooms');
     });
 
     __exports__["default"] = Router;
@@ -65,14 +66,38 @@ define("peep-chat-client/templates/application",
     /**/) {
     this.compilerInfo = [4,'>= 1.0.0'];
     helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-      var buffer = '', stack1;
+      var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing;
 
+    function program1(depth0,data) {
+      
+      
+      data.buffer.push("Rooms");
+      }
 
-      data.buffer.push("<h2 id=\"title\">Welcome to Ember.js</h2>\n\n");
+      data.buffer.push("<h2 id=\"title\">PeepChat</h2>\n");
+      stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "rooms", options) : helperMissing.call(depth0, "link-to", "rooms", options));
+      if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+      data.buffer.push("\n");
       stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       data.buffer.push("\n");
       return buffer;
+      
+    });
+  });
+define("peep-chat-client/templates/rooms", 
+  ["ember","exports"],
+  function(__dependency1__, __exports__) {
+    "use strict";
+    var Ember = __dependency1__["default"];
+    __exports__["default"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data
+    /**/) {
+    this.compilerInfo = [4,'>= 1.0.0'];
+    helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+      
+
+
+      data.buffer.push("<h3>All Rooms</h3>\n");
       
     });
   });
