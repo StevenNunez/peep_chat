@@ -1,1 +1,8 @@
-<h3>All Rooms</h3>
+<h2>All Rooms</h2>
+<ul>
+  {{#each room in controller}}
+    <li>{{#link-to 'room' room}}{{room.name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}

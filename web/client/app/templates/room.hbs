@@ -1,0 +1,9 @@
+<h3>{{name}}</h3>
+
+{{#each message in messages}}
+  <div id="message">
+    {{message.body}}
+  </div>
+{{else}}
+No Messages
+{{/each}}

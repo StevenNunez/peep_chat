@@ -7,6 +7,8 @@ defmodule PeepChat do
     import Supervisor.Spec, warn: false
 
     children = [
+      worker(PeepChat.Repo, []),
+      worker(PeepChat.Endpoint, [])
       # Define workers and child supervisors to be supervised
       # worker(PeepChat.Worker, [arg1, arg2, arg3])
     ]
